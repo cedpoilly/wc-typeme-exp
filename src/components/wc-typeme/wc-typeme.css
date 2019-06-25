@@ -1,0 +1,46 @@
+:host {
+  --animName: tm-blink;
+  --cursor-blink-speed: 800ms;
+}
+@keyframes tm-blink {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes tm-blink {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.tm-cursor {
+  display: inline-block;
+  transform: scale(1.2);
+  font: inherit;
+  position: relative;
+  font-style: normal !important;
+}
+.tm-blink {
+  animation: var(--animName) var(--cursor-blink-speed) infinite !important;
+}
+
+#slot-container {
+  display: none;
+}

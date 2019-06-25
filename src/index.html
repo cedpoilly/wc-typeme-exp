@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/wc-typeme.esm.js"></script>
+    <script nomodule src="/build/wc-typeme.js"></script>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        font-size: 16px;
+        line-height: 32px;
+      }
+
+      wc-typeme {
+        margin: 0 0;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <wc-typeme id="base">✌🏽 Handling slot content. 😎</wc-typeme>
+    <br />
+
+    <wc-typeme id="base" strings="✅ Single string passed. 1️⃣"></wc-typeme>
+    <br />
+
+    <wc-typeme
+      id="line-break"
+      strings="['Handle strings array', 'as attribute string. 🥴']"
+    ></wc-typeme>
+
+    <br />
+
+    <wc-typeme
+      id="line-break"
+      strings="['Handle line breaks...', '__LINEBREAK__', 'Right? Right? 😃']"
+    ></wc-typeme>
+    <br />
+
+    <wc-typeme
+      id="line-break"
+      strings="['Handle deletes...', '__DELETE__10', 'chars deletion. 💪🏽']"
+    ></wc-typeme>
+    <br />
+
+    <wc-typeme
+      id="line-break"
+      strings="['Handle custom delays...', '__DELAY__2000', 'Oh yeah! ✌🏽😎']"
+    ></wc-typeme>
+    <br />
+    <!--
+
+    <wc-typeme id="delete-all"></wc-typeme> <br />
+
+    <script>
+      document.querySelector("#line-break").strings = [
+        "Line break after this one.",
+        { type: { displayName: "LineBreak" } },
+        "Changed to this one."
+      ];
+
+      document.querySelector("#delete-all").strings = [
+        "First sentence.",
+        { type: { displayName: "Delete" }, props: { characters: 0 } },
+        "Changed to this one."
+      ];
+    </script> -->
+  </body>
+</html>
