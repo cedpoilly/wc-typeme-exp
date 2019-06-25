@@ -10,6 +10,29 @@
       src="https://unpkg.com/wc-typeme@latest/dist/wc-typeme/wc-typeme.esm.js"
     ></script>
 
+    <style>
+      body {
+        font-family: sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 32px;
+        background: rgb(40, 108, 255);
+        background: linear-gradient(
+          140deg,
+          rgba(40, 108, 255, 1) 6%,
+          rgba(0, 49, 185, 1) 46%
+        );
+        color: rgb(171, 193, 255);
+        text-shadow: 1px 1px 4px rgb(255, 251, 40, 0.3);
+      }
+
+      wc-typeme {
+        /* margin: 0 0; */
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
     <wc-typeme id="base">✌🏽 Handling slot content. 😎</wc-typeme>
     <br />
 
@@ -40,6 +63,5 @@
       strings="['Handle custom delays...', '__DELAY__2000', 'Oh yeah! ✌🏽😎']"
     ></wc-typeme>
     <br />
-  </head>
-  <body></body>
+  </body>
 </html>
