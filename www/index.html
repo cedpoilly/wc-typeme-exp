@@ -1,0 +1,28 @@
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title>  <link rel="modulepreload" href="/build/p-8f39645a.js"><link rel="modulepreload" href="/build/p-l1togt4f.entry.js"><script nomodule="" src="/build/wc-typeme.js"></script> <style>
+      body {
+        font-family: sans-serif;
+        font-size: 16px;
+        line-height: 32px;
+      }
+
+      wc-typeme {
+        margin: 0 0;
+        display: block;
+      }
+    </style> </head> <body> <wc-typeme id="base">✌🏽 Handling slot content. 😎</wc-typeme> <br> <wc-typeme id="base" strings="✅ Single string passed. 1️⃣"></wc-typeme> <br> <wc-typeme id="line-break" strings="['Handle strings array', 'as attribute string. 🥴']"></wc-typeme> <br> <wc-typeme id="line-break" strings="['Handle line breaks...', '__LINEBREAK__', 'Right? Right? 😃']"></wc-typeme> <br> <wc-typeme id="line-break" strings="['Handle deletes...', '__DELETE__10', 'chars deletion. 💪🏽']"></wc-typeme> <br> <wc-typeme id="line-break" strings="['Handle custom delays...', '__DELAY__2000', 'Oh yeah! ✌🏽😎']"></wc-typeme> <br> <!--
+
+    <wc-typeme id="delete-all"></wc-typeme> <br />
+
+    <script>
+      document.querySelector("#line-break").strings = [
+        "Line break after this one.",
+        { type: { displayName: "LineBreak" } },
+        "Changed to this one."
+      ];
+
+      document.querySelector("#delete-all").strings = [
+        "First sentence.",
+        { type: { displayName: "Delete" }, props: { characters: 0 } },
+        "Changed to this one."
+      ];
+    </script> --> <script type="module" data-resources-url="/build/" data-namespace="wc-typeme">import{p as e,b as a}from"/build/p-8f39645a.js";e().then(e=>a([["p-dbmafcaa",[[1,"my-component",{first:[1],middle:[1],last:[1]}]]],["p-l1togt4f",[[1,"wc-typeme",{loop:[4],strings:[8],childList:[1,"children"],mainClassName:[1,"classname"],hideCursor:[4,"hide-cursor"],typingSpeed:[2,"typing-speed"],deleteSpeed:[2,"delete-speed"],backspaceDelay:[2,"backspace-delay"],startAnimation:[4,"start-animation"],onAnimationEnd:[16],cursorCharacter:[1,"cursor-character"],cursorBlinkSpeed:[2,"cursor-blink-speed"],containerCn:[32],cursorCn:[32],deleteChar:[32],itemIndex:[32],charIndex:[32],typedString:[32],newTypedString:[32],typingInterval:[32],deleteInterval:[32],nextItem:[32],elapsed:[32],animationPaused:[32],animationEnded:[32],instanceId:[32]}]]]],{resourcesUrl:e}));</script></body></html>
