@@ -1,5 +1,8 @@
 import { Component, Prop, h, State, Watch, Element } from "@stencil/core";
 
+//@ts-ignore
+import worker from "worker#../../worker.js";
+
 @Component({
   tag: "wc-typeme",
   styleUrl: "wc-typeme.css",
@@ -54,6 +57,8 @@ export class TypeMe {
       .toString(36)
       .substring(2, 5);
 
+  worker: Worker;
+
   connectedCallback() {
     this.setStyles();
     this.handleAnimation();
@@ -91,7 +96,7 @@ export class TypeMe {
     );
   }
 
-  handleAnimation() {
+  async handleAnimation() {
     if (this.startAnimation) {
       let items = [];
 
@@ -128,34 +133,50 @@ export class TypeMe {
         items = this.childList;
       }
 
-      const processedItems = (() => {
-        const lineBreak = "__LINEBREAK__";
-        const deleteChars = "__DELETE__";
-        const delay = "__DELAY__";
+      const withWorker = false;
 
-        return items.map(part => {
-          if (part.trim() === lineBreak) {
-            return { type: { displayName: "LineBreak" } };
-          }
+      let processedItems;
 
-          if (part.trim().includes(deleteChars)) {
-            const charsCount = part.trim().substring(10, part.trim().length);
-            return {
-              type: { displayName: "Delete" },
-              props: { characters: Number(charsCount) }
-            };
-          }
+      if (withWorker) {
+        if (!this.worker) {
+          this.worker = new worker();
+        }
 
-          if (part.trim().includes(delay)) {
-            const timing = part.trim().substring(9, part.trim().length) || 0;
-            return {
-              type: { displayName: "Delay" },
-              props: { ms: Number(timing) }
-            };
-          }
-          return part;
+        processedItems = await new Promise(resolve => {
+          this.worker.postMessage({ action: "PROCESS_ITEM", payload: items });
+
+          this.worker.onmessage = e => {
+            const { payload } = e.data;
+            resolve(payload);
+          };
         });
-      })();
+      } else {
+        processedItems = (() => {
+          const lineBreak = "__LINEBREAK__";
+          const deleteChars = "__DELETE__";
+          const delay = "__DELAY__";
+          return items.map(part => {
+            if (part.trim() === lineBreak) {
+              return { type: { displayName: "LineBreak" } };
+            }
+            if (part.trim().includes(deleteChars)) {
+              const charsCount = part.trim().substring(10, part.trim().length);
+              return {
+                type: { displayName: "Delete" },
+                props: { characters: Number(charsCount) }
+              };
+            }
+            if (part.trim().includes(delay)) {
+              const timing = part.trim().substring(9, part.trim().length) || 0;
+              return {
+                type: { displayName: "Delay" },
+                props: { ms: Number(timing) }
+              };
+            }
+            return part;
+          });
+        })();
+      }
 
       this.nextItem = this.getNextItem(processedItems);
       let { direction } = this.nextItem;
@@ -318,7 +339,6 @@ export class TypeMe {
       if (time >= this.elapsed + interval) {
         this.elapsed = time;
         const split = nts.split("•");
-        // setTypedString(
         this.typedString = split.map((str, index) => {
           return (
             <span key={`${this.instanceId}-${index}`}>
@@ -336,7 +356,6 @@ export class TypeMe {
   }
 
   render() {
-    console.log(this.el.shadowRoot);
     return [
       <span id="slot-container">
         <slot />

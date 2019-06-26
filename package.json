@@ -21,7 +21,11 @@
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
-    "@stencil/core": "^1.0.7"
+    "@stencil/core": "^1.0.7",
+    "rollup-plugin-webworkify": "0.0.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "comlink": "^4.0.1"
+  }
 }
