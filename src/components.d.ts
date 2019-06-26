@@ -9,20 +9,6 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
-  }
   interface WcTypeme {
     'backspaceDelay': number;
     'childList': string;
@@ -42,38 +28,17 @@ export namespace Components {
 declare global {
 
 
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
-  };
-
   interface HTMLWcTypemeElement extends Components.WcTypeme, HTMLStencilElement {}
   var HTMLWcTypemeElement: {
     prototype: HTMLWcTypemeElement;
     new (): HTMLWcTypemeElement;
   };
   interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
     'wc-typeme': HTMLWcTypemeElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
   interface WcTypeme extends JSXBase.HTMLAttributes<HTMLWcTypemeElement> {
     'backspaceDelay'?: number;
     'childList'?: string;
@@ -90,7 +55,6 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
-    'my-component': MyComponent;
     'wc-typeme': WcTypeme;
   }
 }

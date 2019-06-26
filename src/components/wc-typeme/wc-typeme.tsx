@@ -22,7 +22,7 @@ export class TypeMe {
   @Prop({ attribute: "children" }) childList = "";
   @Prop({ attribute: "className" }) mainClassName = "";
   @Prop() hideCursor = false;
-  @Prop() typingSpeed = 500; // WPM
+  @Prop() typingSpeed = 240; // WPM
   @Prop() deleteSpeed = 800; // WPM
   @Prop() backspaceDelay = 500; // ms
   @Prop() startAnimation = true;

@@ -18,7 +18,8 @@
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "publish": "npm run build && npm version patch && npm publish"
   },
   "devDependencies": {
     "@stencil/core": "^1.0.7",

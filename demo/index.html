@@ -4,11 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Experiment! Converting React-TypeMe into a Web Component solution."
+    />
     <title>Demo - WC TypeMe</title>
     <script
       type="module"
       src="https://unpkg.com/wc-typeme@latest/dist/wc-typeme/wc-typeme.esm.js"
     ></script>
+
+    <link rel="manifest" href="./icons/manifest.json" />
+    <link
+      rel="shortcut icon"
+      href="./icons/favicon-32x32.png"
+      type="image/x-icon"
+    />
 
     <style>
       body {
@@ -33,7 +44,7 @@
     </style>
   </head>
   <body>
-    <wc-typeme id="base">✌🏽 Handling slot content. 😎</wc-typeme>
+    <wc-typeme id="slot">✌🏽 Handling slot content. 😎</wc-typeme>
     <br />
 
     <wc-typeme id="base" strings="✅ Single string passed. 1️⃣"></wc-typeme>

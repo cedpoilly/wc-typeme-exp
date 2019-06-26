@@ -18,7 +18,7 @@
 | `onAnimationEnd`   | --                   |             | `() => void` | `() => {}`  |
 | `startAnimation`   | `start-animation`    |             | `boolean`    | `true`      |
 | `strings`          | `strings`            |             | `any`        | `undefined` |
-| `typingSpeed`      | `typing-speed`       |             | `number`     | `500`       |
+| `typingSpeed`      | `typing-speed`       |             | `number`     | `240`       |
 
 
 ----------------------------------------------
